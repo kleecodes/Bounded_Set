@@ -24,10 +24,11 @@ public class BoundedSet<E>{
   @SuppressWarnings("unchecked")
   boolean add(E element){
     if(element == null) return false;
-    // else if() return false;
+    else if(contains(element)) return false;
     else if(this.size == this.capacity) return false;
     else{
       this.array[size] = element;
+      size++;
       return true;
     }
   }
@@ -53,6 +54,42 @@ public class BoundedSet<E>{
   int getSize(){
     return this.size;
   }
+/** Removes the specified element from the bounded set. will fail and return false if not found.
+  * @param element to remove
+  * @return boolean whether it suceeded
+  */
+  boolean remove(E element){
+    for(int i = 0; i < this.size; i++){
+      if(this.array[i] == element)) {
+        this.array[i] = null;
+        this.size--;
+        return true;
+      }
+    }
+    return false;
+  }
+/** Returns a string representing the bounded set.
+  * @return String
+  */
+  @Override
+  public String toString(){
+    StringBuilder builder = new StringBuilder("[");
+    for(int i = 0; i < this.size; i++){
+      if(i != 0) builder.append(" ,");
+      builder.append(array[i]);
+    }
+    builder.append("]");
+    return builder.toString();
+  }
+/** Return index in which it is located inside the internal array.
+  * @param E element
+  * @return integer index
+  */
+  int findIndex(E element){
+    for(int i = 0; i < this.size; i++){
+      if()
+    }
+  }
 
 
   public static void main(String[] args){
@@ -61,5 +98,9 @@ public class BoundedSet<E>{
     array.add(4);
     array.add(23);
     array.add(21);
+    System.out.println(array.toString());
+    array.remove(21);
+    System.out.println(array.toString());
+
   }
 }
