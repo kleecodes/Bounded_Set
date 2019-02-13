@@ -60,7 +60,7 @@ public class BoundedSet<E>{
   */
   boolean remove(E element){
     for(int i = 0; i < this.size; i++){
-      if(this.array[i] == element)) {
+      if(this.array[i] == element){
         this.array[i] = null;
         this.size--;
         return true;
@@ -75,7 +75,7 @@ public class BoundedSet<E>{
   public String toString(){
     StringBuilder builder = new StringBuilder("[");
     for(int i = 0; i < this.size; i++){
-      if(i != 0) builder.append(" ,");
+      if(i != 0) builder.append(", ");
       builder.append(array[i]);
     }
     builder.append("]");
@@ -87,20 +87,35 @@ public class BoundedSet<E>{
   */
   int findIndex(E element){
     for(int i = 0; i < this.size; i++){
-      if()
+      if(this.array[i] == element) return i;
     }
+    return -1;
   }
 
 
   public static void main(String[] args){
-    BoundedSet<Integer> array = new BoundedSet<Integer>(10);
-    array.add(50);
-    array.add(4);
-    array.add(23);
-    array.add(21);
-    System.out.println(array.toString());
-    array.remove(21);
-    System.out.println(array.toString());
-
+    // BoundedSet<Integer> array = new BoundedSet<Integer>(10);
+    // array.add(50);
+    // array.add(4);
+    // array.add(23);
+    // array.add(21);
+    // System.out.println(array.toString());
+    // System.out.println("Removing an element...");
+    // array.remove(2);
+    // System.out.println(array.toString());
+    // System.out.println("array capacity: " + array.getCapacity());
+    // System.out.println("array size: " + array.getSize());
+    // BoundedSet<String> string_array = new BoundedSet<String>(10);
+    // string_array.add("cat");
+    // string_array.add("dog");
+    // string_array.add("kea");
+    // string_array.add("bug");
+    // System.out.println(string_array.toString());
+    // System.out.println("Removing an element...");
+    // string_array.remove("bug");
+    // System.out.println(string_array.toString());
+    // System.out.println("string array capacity: " + string_array.getCapacity());
+    // System.out.println("string array size: " + string_array.getSize());
+    // System.out.println("list contains cat: " + string_array.contains("cat"));
   }
 }
